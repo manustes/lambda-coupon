@@ -1,0 +1,27 @@
+{
+  "name": "melitest",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "files": [
+    "/src"
+  ],
+  "scripts": {
+    "test": "nyc --reporter=lcov mocha test",
+    "prebuild": "rm -rf dist",
+    "audit": "npm audit",
+    "lint:fix": "eslint --fix .",
+    "lint": "eslint .",
+    "prettier:list": "prettier --list-different \"./{test,src}/**/*.js\" || ECHO .",
+    "prettier:write": "prettier --write  \"./{test,src}/**/*.js\"",
+    "prettier": "prettier --check  \"./{test,src}/**/*.js\"",
+    "build": "repack-zip",
+    "postbuild": "mkdir dist; mv melitest.zip dist/"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.3.2",
+    "nyc": "^15.1.0",
+    "repack-zip": "^0.2.8",
+    "sinon": "^9.2.4"
+  }
+}
